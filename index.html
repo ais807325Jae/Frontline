@@ -1,0 +1,87 @@
+<title> Welcome </title>
+
+<script type="text/javascript" src="script/soundmanager2.js"></script>
+<script type="text/javascript" src="script/loadsoundchrome.js"></script>
+
+<center>
+    <script type="text/javascript" src="script/processing-1.4.1.js"></script>
+    <script type="text/processing" data-processing-target="mycanvas">
+
+/* @pjs globalKeyEvents = "true"; */
+
+PFont zombified;
+PFont captureit;
+PImage backgroundPicture;
+
+void setup()
+
+{  
+
+    size( 1600, 850 );  
+    background(215,255,255);
+    frameRate( 30 );
+	
+	text("Frontline",500,800);
+	
+	zombified = loadFont("ZOMBIFIED");
+	captureit = loadFont("Capture it");
+	backgroundPicture = loadImage("Welcome Background.jpg");
+}  
+
+
+void draw()
+{
+//Background picture
+	background(215,255,255);
+	image(backgroundPicture,0,0);
+	
+	
+//Frontline Title
+	fill(0,0,0);
+	textFont(zombified,300);
+	text("Frontline",250,400);
+
+//Start button
+	stroke(0,0,0);
+	strokeWeight(20);
+	fill(225,255,255);
+	rect(320,650,400,150);
+	
+	textFont(captureit,58);
+	fill(0,0,0);
+	text("Start",440,750);
+	
+//Instructions button
+	stroke(0,0,0);
+	strokeWeight(20);
+	fill(225,255,255);
+	rect(900,650,400,150);
+	
+	fill(0,0,0);
+	textFont(captureit,58);
+	text("Instructions",915,750);
+	
+//Press Start and Instructions
+	if(mousePressed == true && mouseButton == LEFT)
+	{
+		if(mouseX > 320 && mouseX < 720 && mouseY > 650 && mouseY < 800)
+		{
+			link("Level 1.html");
+		}
+		
+		if(mouseX > 900 & mouseX < 1300 && mouseY >650 && mouseY < 800)
+		{
+			link("Instructions.html");
+		}
+	}
+
+//Music
+
+
+	
+
+}
+
+    </script>
+    <canvas id="mycanvas"></canvas>
+</center>

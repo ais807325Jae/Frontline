@@ -1,0 +1,46 @@
+<title> Instruction Page </title>
+
+<script type="text/javascript" src="script/soundmanager2.js"></script>
+<script type="text/javascript" src="script/loadsoundchrome.js"></script>
+
+<center>
+    <script type="text/javascript" src="script/processing-1.4.1.js"></script>
+    <script type="text/processing" data-processing-target="mycanvas">
+
+/* @pjs globalKeyEvents = "true"; */
+
+PFont vanHelsing;
+
+void setup()
+
+{  
+
+    size( 1600, 850 );  
+    background(215,255,255);
+    frameRate( 30 );
+    
+    vanHelsing = loadFont("Van Helsing");
+	
+}  
+
+
+void draw()
+{
+	fill(0,0,0);
+	textFont(vanHelsing,50);
+	text("Instructions",300,130);
+	text("The goal is simple: Kill as many zombies and survive as far as possible",190,200);
+	text("You start with full health bar",300,270);
+	text("Press 'D' to move forward",110,340); 
+	text("Press 'A' to move backward",550,410);
+	text("Press 'D' to move forward",580,480);
+	text("1 zombie bite: -40% health in level 1 and -100% in level 2",350,550);
+
+
+
+
+}
+
+    </script>
+    <canvas id="mycanvas"></canvas>
+</center>

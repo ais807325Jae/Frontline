@@ -1,0 +1,49 @@
+<html>
+<head>
+<title> Clear </title>
+<script src="script/processing-1.4.1.js"></script>
+<script type="text/processing" data-processing-target="mycanvas">
+
+PImage gobg;
+int zombieCount;
+
+
+void setup(){
+	
+size( 1400, 1000 );
+background(91,78,78);
+frameRate( 30 );
+
+
+gobg = loadImage("pictures/gobg.png");
+zombieCount = 8;
+}
+
+void draw(){
+
+	image (gobg,0,200,1400,700);
+
+
+	fill(255,0,0);	
+	textSize(65);
+	text("YOU HAVE SLAIN ALL ZOMBIES!!!",10,100);
+
+	fill(255,255,255);
+    textSize(50);
+    text("Zombies killed:",400,590);
+    
+    text(zombieCount, 750,592); 
+}
+
+</script>
+<canvas id="mycanvas"></canvas>
+</head>
+
+<body>
+
+</body>
+</html>
+
+
+
+

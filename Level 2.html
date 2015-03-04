@@ -1,0 +1,1010 @@
+<html>
+<head>
+<title> Level 2 </title>
+
+<script type="text/javascript" src="script/soundmanager2.js"></script>
+<script type="text/javascript" src="script/loadsoundchrome.js"></script>
+
+<center>
+    <script type="text/javascript" src="script/processing-1.4.1.js"></script>
+    <script type="text/processing" data-processing-target="mycanvas">
+
+	/* @pjs globalKeyEvents ="true"; */
+
+PImage backgroundPicture1;
+PImage zombieLevel1;
+PImage bullet;
+PImage gunMan;
+
+int playMusic;
+
+//Character positions
+
+	int zombiex1;
+	int zombiex2;
+	int zombiex3;
+
+	int zombiey1;
+	int zombiey2;
+	int zombiey3;
+
+	int gunmanX;
+
+//Counters 
+
+	int health;
+	int bulletCount;
+	int zombieCount2;
+
+//Firing bullet
+	int bulletPosx;
+	//Initial position x
+	int bulletPosy;
+	//Initial position x
+	
+	int mouseClickedx;
+	int mouseClickedy;
+
+	int bulletFire;
+
+	int bRatex;
+	int bRatey;
+
+//Killing Zombies
+	int zombiedist1;
+	int zombiedist2;
+	int zombiedist3;
+
+	int shootZombie1;
+	int shootZombie2;
+	int shootZombie3;
+	
+//Bullet Zombie Collision
+	int bullet1Zombie1;
+	int bullet1Zombie2;
+	int bullet1Zombie3;
+
+
+	int bullet2Zombie1;
+	int bullet2Zombie2;
+	int bullet2Zombie3;
+
+
+	int bullet2Zombie1;
+	int bullet2Zombie2;
+	int bullet2Zombie3;
+
+	
+	int bullet3Zombie1;
+	int bullet3Zombie2;
+	int bullet3Zombie3;
+
+	int bullet4Zombie1;
+	int bullet4Zombie2;
+	int bullet4Zombie3;
+
+	int bullet5Zombie1;
+	int bullet5Zombie2;
+	int bullet5Zombie3;
+
+	
+	int bullet6Zombie1;
+	int bullet6Zombie2;
+	int bullet6Zombie3;
+
+
+	int bullet7Zombie1;
+	int bullet7Zombie2;
+	int bullet7Zombie3;
+
+
+	int bullet1hit;
+	int bullet2hit;
+	int bullet3hit;
+	int bullet4hit;	
+	int bullet5hit;	
+	int bullet6hit;	
+	int bullet7hit;	
+
+//Bullet Movement
+
+int mouseClickedx;
+int mouseClickedy;
+
+int mouseClicked1x;
+int mouseClicked1y;
+
+int mouseClicked2x;
+int mouseClicked2y;
+
+int mouseClicked3x;
+int mouseClicked3y;
+
+int mouseClicked4x;
+int mouseClicked4y;
+
+int mouseClicked5x;
+int mouseClicked5y;
+
+int mouseClicked6x;
+int mouseClicked6y;
+
+int mouseClicked7x;
+int mouseClicked7y;
+
+int mouseClicked8x;
+int mouseClicked8y;
+
+int mouseClicked9x;
+int mouseClicked9y;
+
+
+
+int bullet9Fire;
+int bullet8Fire;
+int bullet7Fire;
+int bullet6Fire;
+int bullet5Fire;
+int bullet4Fire;
+int bullet3Fire;
+int bullet2Fire;
+int bullet1Fire;
+int bulletFire;
+
+int bulletFired;
+int bullet1Fired;
+int bullet2Fired;
+int bullet3Fired;
+int bullet4Fired;
+int bullet5Fired;
+int bullet6Fired;
+int bullet7Fired;
+int bullet8Fired;
+int bullet9Fired;
+
+int bRatex;
+int bRatey;
+
+int bRate1x;
+int bRate1y;
+
+int bRate2x;
+int bRate2y;
+
+int bRate3x;
+int bRate3y;
+
+int bRate4x;
+int bRate4y;
+
+int bRate5x;
+int bRate5y;
+
+int bRate6x;
+int bRate6y;
+
+int bRate7x;
+int bRate7y;
+
+int bRate8x;
+int bRate8y;
+
+int bRate9x;
+int bRate9y;
+
+int bulletPosx;
+int bulletPosy;
+
+int bulletPos1x;
+int bulletPos1y;
+
+int bulletPos2x;
+int bulletPos2y;
+
+int bulletPos3x;
+int bulletPos3y;
+
+int bulletPos4x;
+int bulletPos4y;
+
+int bulletPos5x;
+int bulletPos5y;
+
+int bulletPos6x;
+int bulletPos6y;
+
+int bulletPos7x;
+int bulletPos7y;
+
+int bulletPos8x;
+int bulletPos8y;
+
+int bulletPos9x;
+int bulletPos9y;
+
+void setup()
+{
+ 	size(1600,850);
+ 	background(0,0,0);
+    frameRate(30);
+   
+//Images
+    backgroundPicture1 = loadImage("pictures/bg3.jpg");
+    gunMan = loadImage("pictures/gunman.png");
+    zombieLevel1 = loadImage("pictures/zombie3.png");
+    bullet = loadImage("pictures/bullet.png");
+
+    
+//Integers
+	zombiex1 = 1400;  
+	zombiey2 = 400;
+
+	stopZombie1 = 1;
+
+	zombiex2 = 1600;
+	zombiey2 = 400;
+
+	stopZombie2 = 1;
+
+	zombiex3 = 1650;
+	zombiey3 = 180;
+
+	stopZombie3 = 0;
+
+	kingzombieMovex = 1700;	
+
+	gunmanX = 100;
+	playMusic = 1;
+	health = (int)sessionStorage.transferx2;
+	bulletCount = 7;
+	zombieCount2 = (int)sessionStorage.transferx1;
+	
+//Distances between zombies and gunman
+	zombiedist1 = 0;
+	zombiedist2 = 0;
+	zombiedist3 = 0;
+	bullet1Zombie1 = 0;
+	
+//Bullet 1
+	mouseClickedx = 0;
+	mouseClickedy = 0; 
+
+	bulletPosx = 0;
+	bulletPosy = 433;
+
+	bulletFire = 0;
+	bulletFired = 1;
+
+	bRatex = 0;
+	bRatey = 0;
+	
+	bullet1hit = 1;
+
+//Bullet 2
+	mouseClicked1x = 0;
+	mouseClicked1y = 0; 
+
+	bulletPos1x = 0;
+	bulletPos1y = 433;
+
+	bullet1Fire = 0;
+	bullet1Fired = 1;
+
+	bRate1x = 0;
+	bRate1y = 0;
+	
+	bullet2hit = 1;
+
+//Bullet 3
+	mouseClicked2x = 0;
+	mouseClicked2y = 0; 
+
+	bulletPos2x = 0;
+	bulletPos2y = 433;
+
+	bullet2Fire = 0;
+	bullet2Fired = 1;
+
+	bRate2x = 0;
+	bRate2y = 0;
+	
+	bullet3hit = 1;
+	
+//Bullet 4
+	mouseClicked3x = 0;
+	mouseClicked3y = 0; 
+
+	bulletPos3x = 0;
+	bulletPos3y = 433;
+
+	bullet3Fire = 0;
+	bullet3Fired = 1;
+
+	bRate3x = 0;
+	bRate3y = 0;
+	
+	bullet4hit = 1;
+	
+//Bullet 5
+	mouseClicked4x = 0;
+	mouseClicked4y = 0; 
+
+	bulletPos4x = 0;
+	bulletPos4y = 433;
+
+	bullet4Fire = 0;
+	bullet4Fired = 1;
+	
+	bRate4x = 0;
+	bRate4y = 0;
+	
+	bullet5hit = 1;
+	
+//Bullet 6
+	mouseClicked5x = 0;
+	mouseClicked5y = 0; 
+
+	bulletPos5x = 0;
+	bulletPos5y = 433;
+
+	bullet5Fire = 0;
+	bullet5Fired = 1;
+
+	bRate5x = 0;
+	bRate5y = 0;
+	
+	bullet6hit = 1;
+	
+//Bullet 7
+	mouseClicked6x = 0;
+	mouseClicked6y = 0; 
+
+	bulletPos6x = 0;
+	bulletPos6y = 433;
+
+	bullet6Fire = 0;
+	bullet6Fired = 1;
+	
+	bRate6x = 0;
+	bRate6y = 0;
+	
+	bullet7hit = 1;
+	
+
+
+//Shoot Zombies
+	shootZombie1 = 1;
+	shootZombie2 = 1;
+	shootZombie3 = 1;
+}
+
+void draw(){
+
+	background (0,0,0);
+//Images
+
+	image(backgroundPicture1,0,200,1600,600);
+	image(gunMan,gunmanX,400,190,250);
+
+	if(shootZombie1 == 1)
+		{
+			image(zombieLevel1,zombiex1,400,150,250);
+		}
+	if(shootZombie2 == 1)
+		{
+			image(zombieLevel1,zombiex2,400,150,250);
+		}
+	if(shootZombie3 == 1)
+		{
+			image(zombieLevel1,zombiex3,400,150,250);
+		}
+
+//Movement Control
+	//Gunman
+	if(keyPressed == true)
+	{
+		if (key == 'd')
+		{	
+			gunmanX = gunmanX + 5;
+
+		}
+
+		if (key == 'a')
+		{
+			gunmanX = gunmanX - 5;
+		}	
+	}
+	//Zombies
+		zombiex1 = zombiex1 - 5;
+		zombiex2 = zombiex2 - 7;
+		zombiex3 = zombiex3 - 5;
+		
+	
+//Music
+	if(playMusic == 1)
+	{
+		soundManager.play('s0');
+		playMusic = 0;
+	}
+
+//Collision detection
+	textSize(60);
+	text(health,100,100);
+
+	zombiedist1 = (int)sqrt(sq(zombiex1-gunmanX));
+	if(zombiedist1 == 0 && shootZombie1 == 1)
+	{
+		health = health - 100;
+	}
+	
+	zombiedist2 = (int)sqrt(sq(zombiex2-gunmanX));
+	if(zombiedist2 == 0 && shootZombie2 == 1)
+	{
+		health = health - 100;
+	}
+	
+	zombiedist3 = (int)sqrt(sq(zombiex3-gunmanX));
+	if(zombiedist3 == 0 && shootZombie3 == 1)
+	{
+		health = health - 100;
+	}
+
+
+
+//Bullet Movement
+	//Bullet 1 Movement
+		if (mousePressed == true && mouseButton == LEFT && bulletFire == 0)
+			{	
+				bulletPosx = gunmanX + 150;
+				
+				mouseClickedx = mouseX;
+				mouseClickedy = mouseY;
+			
+				bRatex = mouseClickedx - bulletPosx;
+				bRatey = mouseClickedy - bulletPosy;
+			
+				bulletFire = 1;
+				bulletCount = bulletCount - 1;
+			}
+	
+		if (bulletFire == 1)
+		{
+			bulletPosx = bulletPosx + gunmanX*bRatex/(4*mouseClickedx);
+			bulletPosy = bulletPosy + 40*bRatey/mouseClickedy;
+		
+			image(bullet,bulletPosx,bulletPosy,15,15);
+		}
+		
+		if (bulletPosx >= gunmanX + 500)
+		{
+			bulletFired = 0;
+		}	
+		
+	//Bullet 2 Movement
+
+		if (mousePressed == true && mouseButton == LEFT && bullet1Fire == 0 && bulletFired == 0)
+
+			{
+				bulletPos1x = gunmanX +150;
+				
+				mouseClicked1x = mouseX;
+				mouseClicked1y = mouseY;
+				
+				bRate1x = mouseClicked1x - bulletPos1x;
+				bRate1y = mouseClicked1y - bulletPos1y;
+				
+				bullet1Fire = 1;
+				bulletCount = bulletCount - 1;
+
+			}
+		
+		
+		
+		if (bullet1Fire == 1)
+		{
+			
+			bulletPos1x = bulletPos1x + bRate1x*gunmanX/(4*mouseClicked1x);
+			bulletPos1y = bulletPos1y + 40*bRate1y/mouseClicked1y;
+			
+			image(bullet,bulletPos1x,bulletPos1y,15,15);
+			
+		}
+		
+		if (bulletPos1x >= gunmanX + 550)
+		{
+			bullet1Fired = 0;
+		}	
+
+	//Bullet 3 Movement
+
+		if (mousePressed == true && mouseButton == LEFT && bullet2Fire == 0 && bullet1Fired == 0)
+
+			{
+				bulletPos2x = gunmanX +150;
+			
+				mouseClicked2x = mouseX;
+				mouseClicked2y = mouseY;
+				
+				bRate2x = mouseClicked2x - bulletPos2x;
+				bRate2y = mouseClicked2y - bulletPos2y;
+				
+				bullet2Fire = 1;
+				bulletCount = bulletCount - 1;
+
+			}
+		
+		
+		
+		if (bullet2Fire == 1)
+		{
+			
+			bulletPos2x = bulletPos2x + bRate2x*gunmanX/(4*mouseClicked2x);
+			bulletPos2y = bulletPos2y + 40*bRate2y/mouseClicked2y;
+			
+			image(bullet,bulletPos2x,bulletPos2y,15,15);
+			
+		}
+
+		if (bulletPos2x >= gunmanX +550)
+		{
+			bullet2Fired = 0;
+		}	
+
+	//Bullet 4 Movement
+
+		if (mousePressed == true && mouseButton == LEFT && bullet3Fire == 0 && bullet2Fired == 0)
+
+			{
+				bulletPos3x = gunmanX +150;
+			
+				mouseClicked3x = mouseX;
+				mouseClicked3y = mouseY;
+				
+				bRate3x = mouseClicked3x - bulletPos3x;
+				bRate3y = mouseClicked3y - bulletPos3y;
+				
+				bullet3Fire = 1;
+				bulletCount = bulletCount - 1;
+
+			}
+		
+		
+		
+		if (bullet3Fire == 1)
+		{
+			
+			bulletPos3x = bulletPos3x + bRate3x*gunmanX/(4*mouseClicked3x);
+			bulletPos3y = bulletPos3y + bRate3y/mouseClicked3y;
+			
+			image(bullet,bulletPos3x,bulletPos3y,15,15);
+			
+		}
+
+		if (bulletPos3x >= gunmanX +550)
+		{
+			bullet3Fired = 0;
+		}	
+	
+	//Bullet 5 Movement
+
+		if (mousePressed == true && mouseButton == LEFT && bullet4Fire == 0 && bullet3Fired == 0)
+
+			{
+				bulletPos4x = gunmanX +150;
+			
+				mouseClicked4x = mouseX;
+				mouseClicked4y = mouseY;
+				
+				bRate4x = mouseClicked4x - bulletPos4x;
+				bRate4y = mouseClicked4y - bulletPos4y;
+				
+				bullet4Fire = 1;
+				bulletCount = bulletCount - 1;
+
+			}
+		
+		if (bullet4Fire == 1)
+		{
+			
+			bulletPos4x = bulletPos4x + bRate4x*gunmanX/(4*mouseClicked4x);
+			bulletPos4y = bulletPos4y + bRate4y/mouseClicked4y;
+			
+			image(bullet,bulletPos4x,bulletPos4y,15,15);
+			
+		}
+
+		if (bulletPos4x >= gunmanX +550)
+		{
+			bullet4Fired = 0;
+		}	
+		
+	//Bullet 6 Movement
+
+		if (mousePressed == true && mouseButton == LEFT && bullet5Fire == 0 && bullet4Fired == 0)
+
+			{
+				bulletPos5x = gunmanX +150;
+				
+				mouseClicked5x = mouseX;
+				mouseClicked5y = mouseY;
+				
+				bRate5x = mouseClicked5x - bulletPos5x;
+				bRate5y = mouseClicked5y - bulletPos5y;
+				
+				bullet5Fire = 1;
+				bulletCount = bulletCount - 1;
+
+			}
+		
+		
+		
+		if (bullet5Fire == 1)
+		{
+			
+			bulletPos5x = bulletPos5x + bRate5x*gunmanX/(4*mouseClicked5x);
+			bulletPos5y = bulletPos5y + bRate5y/mouseClicked5y;
+			
+			image(bullet,bulletPos5x,bulletPos5y,15,15);
+			
+		}
+
+		if (bulletPos5x >= gunmanX +550)
+		{
+			bullet5Fired = 0;
+		}	
+		
+	//Bullet 7 Movement
+
+		if (mousePressed == true && mouseButton == LEFT && bullet6Fire == 0 && bullet5Fired == 0)
+
+			{
+				bulletPos6x = gunmanX +150;
+				
+				mouseClicked6x = mouseX;
+				mouseClicked6y = mouseY;
+				
+				bRate6x = mouseClicked6x - bulletPos6x;
+				bRate6y = mouseClicked6y - bulletPos6y;
+				
+				bullet6Fire = 1;
+				bulletCount = bulletCount - 1;
+
+			}
+		
+		if (bullet6Fire == 1)
+		{
+			
+			bulletPos6x = bulletPos6x + bRate6x*gunmanX/(4*mouseClicked6x);
+			bulletPos6y = bulletPos6y + bRate6y/mouseClicked6y;
+			
+			image(bullet,bulletPos6x,bulletPos6y,15,15);
+			
+		}
+
+		if (bulletPos6x >= gunmanX +550)
+		{
+			bullet6Fired = 0;
+		}		
+		
+//Count bullets
+	image(bullet,1150,40,100,100);
+	text(bulletCount,1250,110);
+	
+//Count zombies
+	text(zombieCount2,1000,110);
+	
+//Bullets hitting
+	//Bullet 1 hitting
+		bullet1Zombie1 = (int)sqrt(sq(zombiex1-bulletPosx));
+		
+		if(bulletFire == 1 && bullet1Zombie1 < 20 && bulletPosy > 400 && bulletPosy < 650 )
+		{
+			if(bullet1hit == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie1 = 0;
+				bullet1hit = 0;
+				bulletPosy = 1600;
+			}
+		}
+		
+		bullet1Zombie2 = (int)sqrt(sq(zombiex2-bulletPosx));
+		
+		if(bulletFire == 1 && bullet1Zombie2 < 20 && bulletPosy > 400 && bulletPosy < 650 )
+		{
+			if(bullet1hit == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie2 = 0;
+				bullet1hit = 0;
+				bulletPosy = 1600;
+			}
+		}
+		
+		bullet1Zombie3 = (int)sqrt(sq(zombiex3 -bulletPosx));
+		
+		if(bulletFire == 1 && bullet1Zombie3 < 20 && bulletPosy > 400 && bulletPosy < 650 )
+		{
+			if(bullet1hit == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie3 = 0;
+				bullet1hit = 0;
+				bulletPosy = 1600;
+			}
+		}
+		
+	//Bullet 2 hitting 
+		bullet2Zombie1 = (int)sqrt(sq(zombiex1-bulletPos1x));
+		
+		if(bullet1Fire == 1 && bullet2Zombie1 < 20 && bulletPos1y > 400 && bulletPos1y < 650 )
+		{
+			if(bullet2hit == 1 && shootZombie1 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie1 = 0;
+				bullet2hit = 0;
+				bulletPos1y = 1600;
+			}
+		}
+		
+		bullet2Zombie2 = (int)sqrt(sq(zombiex2-bulletPos1x));
+		
+		if(bullet1Fire == 1 && bullet2Zombie2 < 20 && bulletPos1y > 400 && bulletPos1y < 650 )
+		{
+			if(bullet2hit == 1 && shootZombie2 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie2 = 0;
+				bullet2hit = 0;
+				bulletPos1y = 1600;
+			}
+		}
+		
+		bullet2Zombie3 = (int)sqrt(sq(zombiex3 -bulletPos1x));
+		
+		if(bullet1Fire == 1 && bullet2Zombie3 < 20 && bulletPos1y > 400 && bulletPos1y < 650 )
+		{
+			if(bullet2hit == 1 && shootZombie3 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie3 = 0;
+				bullet2hit = 0;
+				bulletPos1y = 1600;
+			}
+		}
+		
+		
+	//Bullet 3 hitting
+		bullet3Zombie1 = (int)sqrt(sq(zombiex1-bulletPos2x));
+		
+		if(bullet2Fire == 1 && bullet3Zombie1 < 20 && bulletPos2y > 400 && bulletPos2y < 650 )
+		{
+			if(bullet3hit == 1 && shootZombie1 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie1 = 0;
+				bullet3hit = 0;
+				bulletPos2y = 1600;
+			}
+		}
+		
+		bullet3Zombie2 = (int)sqrt(sq(zombiex2-bulletPos2x));
+		
+		if(bullet2Fire == 1 && bullet3Zombie2 < 20 && bulletPos2y > 400 && bulletPos2y < 650 )
+		{
+			if(bullet3hit == 1 && shootZombie2 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie2 = 0;
+				bullet3hit = 0;
+				bulletPos2x = 1600;
+			}
+		}
+		
+		bullet3Zombie3 = (int)sqrt(sq(zombiex3 -bulletPos2x));
+		
+		if(bullet2Fire == 1 && bullet3Zombie3 < 20 && bulletPos2y > 400 && bulletPos2y < 650 )
+		{
+			if(bullet3hit == 1 && shootZombie3 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie3 = 0;
+				bullet3hit = 0;
+				bulletPos2x = 1600;
+			}
+		}
+		
+		
+	//Bullet 4 hitting
+		bullet4Zombie1 = (int)sqrt(sq(zombiex1-bulletPos3x));
+		
+		if(bullet3Fire == 1 && bullet4Zombie1 < 20 && bulletPos3y > 400 && bulletPos3y < 650 )
+		{
+			if(bullet4hit == 1 && shootZombie1 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie1 = 0;
+				bullet4hit = 0;
+				bulletPos3y = 1600;
+			}
+		}
+		
+		bullet4Zombie2 = (int)sqrt(sq(zombiex2-bulletPos3x));
+		
+		if(bullet3Fire == 1 && bullet4Zombie2 < 20 && bulletPos3y > 400 && bulletPos3y < 650 )
+		{
+			if(bullet4hit == 1 && shootZombie2 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie2 = 0;
+				bullet4hit = 0;
+				bulletPos3x = 1600;
+			}
+		}
+		
+		bullet4Zombie3 = (int)sqrt(sq(zombiex3 -bulletPos3x));
+		
+		if(bullet3Fire == 1 && bullet4Zombie3 < 20 && bulletPos3y > 400 && bulletPos3y < 650 )
+		{
+			if(bullet4hit == 1 && shootZombie3 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie3 = 0;
+				bullet4hit = 0;
+				bulletPos3x = 1600;
+			}
+		}
+		
+	//Bullet 5 hitting
+		bullet5Zombie1 = (int)sqrt(sq(zombiex1-bulletPos4x));
+		
+		if(bullet4Fire == 1 && bullet5Zombie1 < 20 && bulletPos4y > 400 && bulletPos4y < 650 )
+		{
+			if(bullet5hit == 1 && shootZombie1 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie1 = 0;
+				bullet5hit = 0;
+				bulletPos4y = 1600;
+			}
+		}
+		
+		bullet5Zombie2 = (int)sqrt(sq(zombiex2-bulletPos4x));
+		
+		if(bullet4Fire == 1 && bullet5Zombie2 < 20 && bulletPos4y > 400 && bulletPos4y < 650 )
+		{
+			if(bullet5hit == 1 && shootZombie2 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie2 = 0;
+				bullet5hit = 0;
+				bulletPos4x = 1600;
+			}
+		}
+		
+		bullet5Zombie3 = (int)sqrt(sq(zombiex3 -bulletPos4x));
+		
+		if(bullet4Fire == 1 && bullet5Zombie3 < 20 && bulletPos4y > 400 && bulletPos4y < 650 )
+		{
+			if(bullet5hit == 1 && shootZombie3 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie3 = 0;
+				bullet5hit = 0;
+				bulletPos4x = 1600;
+			}
+		}
+		
+		
+		
+	//Bullet 6 hitting
+		bullet6Zombie1 = (int)sqrt(sq(zombiex1-bulletPos5x));
+		
+		if(bullet5Fire == 1 && bullet6Zombie1 < 20 && bulletPos5y > 400 && bulletPos5y < 650 )
+		{
+			if(bullet6hit == 1 && shootZombie1 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie1 = 0;
+				bullet6hit = 0;
+				bulletPos5y = 1600;
+			}
+		}
+		
+		bullet6Zombie2 = (int)sqrt(sq(zombiex2-bulletPos5x));
+		
+		if(bullet5Fire == 1 && bullet6Zombie2 < 20 && bulletPos5y > 400 && bulletPos5y < 650 )
+		{
+			if(bullet6hit == 1 && shootZombie2 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie2 = 0;
+				bullet6hit = 0;
+				bulletPos5x = 1600;
+			}
+		}
+		
+		bullet6Zombie3 = (int)sqrt(sq(zombiex3 -bulletPos5x));
+		
+		if(bullet5Fire == 1 && bullet6Zombie3 < 20 && bulletPos5y > 400 && bulletPos5y < 650 )
+		{
+			if(bullet6hit == 1 && shootZombie3 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie3 = 0;
+				bullet6hit = 0;
+				bulletPos5x = 1600;
+			}
+		}
+		
+		
+
+	//Bullet 7 hitting
+		bullet7Zombie1 = (int)sqrt(sq(zombiex1-bulletPos6x));
+		
+		if(bullet6Fire == 1 && bullet7Zombie1 < 20 && bulletPos6y > 400 && bulletPos6y < 650 )
+		{
+			if(bullet7hit == 1 && shootZombie1 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie1 = 0;
+				bullet7hit = 0;
+				bulletPos6y = 1600;
+			}
+		}
+		
+		bullet7Zombie2 = (int)sqrt(sq(zombiex2-bulletPos6x));
+		
+		if(bullet6Fire == 1 && bullet7Zombie2 < 20 && bulletPos6y > 400 && bulletPos6y < 650 )
+		{
+			if(bullet7hit == 1 && shootZombie2 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie2 = 0;
+				bullet7hit = 0;
+				bulletPos6x = 1600;
+			}
+		}
+		
+		bullet7Zombie3 = (int)sqrt(sq(zombiex3 -bulletPos6x));
+		
+		if(bullet6Fire == 1 && bullet7Zombie3 < 20 && bulletPos6y > 400 && bulletPos6y < 650 )
+		{
+			if(bullet7hit == 1 && shootZombie3 == 1)
+			{
+				zombieCount2 = zombieCount2 + 1;
+				shootZombie3 = 0;
+				bullet7hit = 0;
+				bulletPos6x = 1600;
+			}
+		}
+	
+//Game end
+	if(zombieCount2 == 8)
+	{
+		link("Clear.html");	
+	}
+//Game over
+	if(health <= 0)
+	{
+		link("Game over.html");
+		sessionStorage.transferx3 = zombieCount2;
+	}
+	
+	
+
+}
+
+</script>
+<canvas id="mycanvas"></canvas>
+</head>
+
+<body>
+
+</body>
+</html>
+
+
+
+
